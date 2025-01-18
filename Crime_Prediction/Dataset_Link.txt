@@ -1,0 +1,3 @@
+Kaggle Link For Dataset - https://www.kaggle.com/datasets/ishajangir/crime-data
+
+Download dataset from link and put in the folder Crime_Prediction
