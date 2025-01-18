@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        select, button {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            max-width: 300px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crime Prediction by Area and Month</h1>
+    <form method="POST" action="/">
+        <label for="area">Select Area:</label>
+        <select name="area" id="area" required>
+            <option value="" disabled selected>Choose an area</option>
+            <option value="Wilshire">Wilshire</option>
+            <option value="Central">Central</option>
+            <option value="Southwest">Southwest</option>
+            <option value="Van Nuys">Van Nuys</option>
+            <option value="Hollenbeck">Hollenbeck</option>
+            <option value="Rampart">Rampart</option>
+            <option value="Newton">Newton</option>
+            <option value="Northeast">Northeast</option>
+            <option value="77th Street">77th Street</option>
+            <option value="Hollywood">Hollywood</option>
+            <option value="Harbor">Harbor</option>
+            <option value="West Valley">West Valley</option>
+            <option value="West LA">West LA</option>
+            <option value="N Hollywood">N Hollywood</option>
+            <option value="Pacific">Pacific</option>
+            <option value="Devonshire">Devonshire</option>
+            <option value="Mission">Mission</option>
+            <option value="Southeast">Southeast</option>
+            <option value="Olympic">Olympic</option>
+            <option value="Foothill">Foothill</option>
+            <option value="Topanga">Topanga</option>
+        </select>
+
+        <label for="month">Select Month:</label>
+        <select name="month" id="month" required>
+            <option value="" disabled selected>Choose a month</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+        </select>
+
+        <button type="submit">Get Predictions</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if table_data %}
+        <h2>Crime Predictions</h2>
+        {{ table_data | safe }}
+    {% endif %}
+</body>
+</html>
